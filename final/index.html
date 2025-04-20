@@ -27,12 +27,11 @@
 	</head>
 	<body>
 		<div class="container">
-		<h1>CS184 Final Project Milestone</h1>
+		<h1>CS184 Final Project: Eruption</h1>
 		<div style="text-align: center;">Names: Abhishek Suresh, Alexei Ionov, Justin Xue, Xay Hanmonty </div>
 
 		
-		Link to slides: <a href="https://docs.google.com/presentation/d/1Yq5u6v2BvWLbTEo_66HsGETAnla8BXezqeWFBDCUaFg/edit?fbclid=IwZXh0bgNhZW0CMTEAAR6MJRKRdtKOCVTS9zcjckqLt6TA-oNK42qHWkSMrmT7-SCmDZ7pLdpTyO5B5Q_aem_MwVklKxVIA4mAaxZPGOVLQ#slide=id.p"">Slides</a>
-        Link to video: <a href="https://docs.google.com/presentation/d/1Yq5u6v2BvWLbTEo_66HsGETAnla8BXezqeWFBDCUaFg/edit?fbclid=IwZXh0bgNhZW0CMTEAAR6MJRKRdtKOCVTS9zcjckqLt6TA-oNK42qHWkSMrmT7-SCmDZ7pLdpTyO5B5Q_aem_MwVklKxVIA4mAaxZPGOVLQ#slide=id.p"">Video</a>
+		<!-- Link to GitHub repository: (TODO) <a href="https://cs184.eecs.berkeley.edu/sp25">cs184.eecs.berkeley.edu/sp25</a> -->
 
 		<!-- <figure>
 			<img src="clothsim.png" alt="Cloth draped over sphere" style="width:70%"/>
@@ -43,22 +42,19 @@
 		We've already added one heading per part, to make your write-up as navigable when grading. Please fit your write-up within these sections!
 		-->
 
-		
+		<h2>Summary</h2>
 
 		<p>
-            The initial goal of our project was to render the volcano and also focus on the viscosity of the liquid; however, as we have progressed with our project, we realized that the focus should be primarily on the viscosity of the liquid.
-
+			Our project’s main focus is on modeling the dynamic simulation of lava using the Navier-Stokes equations. We plan to have our fluid (lava) flow down the sides of our volcano. 
 		</p>
 
 
-		
+		<h2>Problem Description</h2>
 		<p>
-            The steps that we have accomplished in order to finish our project start with rendering the volcano, where we used project 4 as a baseline where the cloth mesh can be modified to simulate the volcano. By using the buildGrid method that was used for clothes in project 4, we were able to create a heightmap which would allow us to represent the height of the volcano. This is done through using a lighter color for the z-axis that is extracted from the png of the texture map. 
-
+			In general, the problem we are ought to solve is the following - having to model a viscous fluid (lava) as it traverses down our mountainous terrain. We claim that it’s important as it can have direct implications for real-life scenarios, and it can be particularly useful for areas that are prone to this behavior such as Hawaii.
 		</p>
 		<p>
-            The next step that we have made in this project was to render the lava, where the ultimate goal for the lava is to show it flowing down the volcano as if an eruption had just occurred. As of now, we have a volcano blob that is above our volcano using a lava texture; however, we will need to show this flowing down the volcano in our next steps.
-
+			Although our simulation won’t account for all the complexity that can potentially lie on a volcano (trees, bushes, houses, rock formations, etc), it should provide a general intuition for the expected flow of lava down the mountain. This project is challenging in that we have to use the navier-stokes equations as well as model how the lava will interact with our terrain as it flows down. Complexity can scale exponentially depending on realistic we decide to make this terrain.
 		</p>
 		
 		<!-- <p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
@@ -87,21 +83,70 @@
 			</table>
 		</div> -->
 
+		<h2>Goals and Deliverables</h2>
 		
-		
+			<h4> What we plan to deliver </h4>
+				<p>
+					Our main goal is to create a working simulation for lava flowing down a volcano/mountain. For us, the quality of our project would stem from the realistic accuracy of the fluid flow. We want to ensure that the lava has a viscosity that would parallel that which we might find in real life. In addition, a part of this goal for quality would stem from how pleasing our project is to the eye. Of course, this is a totally subjective matter, but at the very least, we’d like for there to be no room for interpretation in regards to our project - anyone should be able to discern that it’s indeed a volcano with lava flowing out of it. That is the bare minimum. 
+				</p>
+				
+				<p>
+					In regards to the metrics that we will use to determine the success of our system, we can focus on rendering metrics such as the time to render frames, or in a lighting sense, how the light’s irradiance is reflected on the display and also how external light sources might have an impact on the irradiance on the volcano’s surface. 
+				</p>
 
-		
+				<p>
+					Diving more into lava as a light source, lava’s emission is something that we will need to take into consideration to represent a glow of sorts. There are many considerations when using lava, such as how it might illuminate the air, and how this might differ with the quantity of lava that we choose to be in our render. 
+				</p>
+
+			<h4> What we hope to deliver</h4>
+				<p>
+					If we get ahead of our schedule, and get the bare bones implementation finished, our team is hoping to add more complexity to the mountain to make the system more realistic. We believe that this task would be very challenging, but also really rewarding if done correctly. This includes adding aspects such as the action of lava first spewing into the air rather than a natural downward motion, or the inclusion of objects which might be engulfed in the lava, among other ideas which we had. 
+				</p>
+				<p>
+					In regards to aspirations that we have with illuminating the surrounding area, we believe aspirations can include accounting for the illumination that might occur as a result of lava, such as a darker global image due to ash and smoke, while also maintaining the illumination from the lava itself. Other aspirations include use different rock formations to represent our volcano, where the lava colliding will take the shape of the different formations on the volcano, different to a strictly smooth surface. 
+				</p>
+
+			<h4> Questions to consider </h4>
 			<p>
-                Relative to our original progress plan, we believe that we are on the right track to finish our project and make the correct modifications, with a possibility to add on more features for our project if we have the time. As of now, we are also finalizing how we are going to use the Marching Cubes algorithm to help model a smooth mesh to help represent our viscous fluid. As the fluid moves down the volcano, we will need more and more particles to help show this, which can be done using the Marching Cubes algorithm while also maintaining the emission that we want to represent the essence of lava. We are planning to use the Marching Cubes algorithm specifically by computing a scalar value that is representative of the comprehensive lava that is around a specific position in the volcano. 
-
+				What objects should we add to the mountain to make it more realistic?
 			</p>
 
 			<p> 
-                In regards to our updated plan for the next two weeks, we will focus on finishing the lava flow and ensuring that we can maintain the emissive properties of the lava while also having it flow down the volcano. We will accompany this with testing so that we are able to ensure that our project is complete for the final presentation. In the fourth week prior to our presentation, we will look to practice our presentation with each other, where we can bounce ideas off of each other and look to potentially add any new things that might pique our interest.
-
+				How would the lava interact with these new objects?
 			</p>
-            
-	<!-- <h2>Part 4: Handling self-collisions</h2>
+
+			<p>
+				How would this added complexity affect the performance of our overall system. would the system render smoothly still with all this added work and calculations that would need to be done?
+			</p>
+
+
+
+		<h2> Schedule </h2>
+			<p>
+				Week 1: Research on modeling simulations + Get started on modeling volcano for our system. 
+			</p>
+			<p>
+				Week 2: Finish up volcano model + begin working on lava flow + testing
+			</p>
+			<p>
+				Week 3: Finish lava flow + testing
+			</p>
+			<p>
+				Week 4: Wrap up and work on producing final deliverable + presentation. 
+			</p>
+
+		
+		<h2> Resources </h2>
+		<p>
+			<a href = "https://drive.google.com/file/d/14NBuwOkBv4B0xg0AGVYWsEsgpjXjXg6a/view?fbclid=IwZXh0bgNhZW0CMTEAAR78jBpmvGrk8wCZjcc0bx5xsHapOjFGMyVkgDAis_BgmRLMV_6NpT3xuRjOTA_aem_CB7LSC66ANmmIrU0CXmGMg">Position Based Fluid Simulation and Surface Rendering</a>
+		</p>
+		<p>
+			<a href = "https://joshua16266261.github.io/184-water-sim/final-report/index.html?fbclid=IwZXh0bgNhZW0CMTEAAR4ZH3C78Ivp1xJcwXbUzKF7rtf1PmQ4vW0P1IKxgZjwyL042aWAMFhOyp9uTQ_aem_nAqEM_yoY50z44RRF3sUOw">Water Simulation</a>
+		</p>
+		<p>
+			<a href = "https://experiments.withgoogle.com/fluid-particles">Fluid Particles</a>
+		</p>
+		<!-- <h2>Part 4: Handling self-collisions</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 		<h2>Part 5: Shaders</h2>

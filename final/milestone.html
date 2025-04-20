@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			h1 {
+				text-align: center;
+			}
+
+			.container {
+				margin: 0 auto;
+				padding: 60px 20%;
+			}
+
+			figure {
+				text-align: center;
+			}
+
+			img {
+				display: inline-block;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		<h1>CS184 Final Project Milestone</h1>
+		<div style="text-align: center;">Names: Abhishek Suresh, Alexei Ionov, Justin Xue, Xay Hanmonty </div>
+
+		
+		Link to slides: <a href="https://docs.google.com/presentation/d/1Yq5u6v2BvWLbTEo_66HsGETAnla8BXezqeWFBDCUaFg/edit?fbclid=IwZXh0bgNhZW0CMTEAAR6MJRKRdtKOCVTS9zcjckqLt6TA-oNK42qHWkSMrmT7-SCmDZ7pLdpTyO5B5Q_aem_MwVklKxVIA4mAaxZPGOVLQ#slide=id.p"">Slides</a>
+        Link to video: <a href="https://docs.google.com/presentation/d/1Yq5u6v2BvWLbTEo_66HsGETAnla8BXezqeWFBDCUaFg/edit?fbclid=IwZXh0bgNhZW0CMTEAAR6MJRKRdtKOCVTS9zcjckqLt6TA-oNK42qHWkSMrmT7-SCmDZ7pLdpTyO5B5Q_aem_MwVklKxVIA4mAaxZPGOVLQ#slide=id.p"">Video</a>
+        <br />
+
+		<!-- <figure>
+			<img src="clothsim.png" alt="Cloth draped over sphere" style="width:70%"/>
+			<figcaption>You can add images with captions!</figcaption>
+		</figure> -->
+
+		<!--
+		We've already added one heading per part, to make your write-up as navigable when grading. Please fit your write-up within these sections!
+		-->
+
+		
+
+		<p>
+            The initial goal of our project was to render the volcano and also focus on the viscosity of the liquid; however, as we have progressed with our project, we realized that the focus should be primarily on the viscosity of the liquid.
+
+		</p>
+
+
+		
+		<p>
+            The steps that we have accomplished in order to finish our project start with rendering the volcano, where we used project 4 as a baseline where the cloth mesh can be modified to simulate the volcano. By using the buildGrid method that was used for clothes in project 4, we were able to create a heightmap which would allow us to represent the height of the volcano. This is done through using a lighter color for the z-axis that is extracted from the png of the texture map. 
+
+		</p>
+		<p>
+            The next step that we have made in this project was to render the lava, where the ultimate goal for the lava is to show it flowing down the volcano as if an eruption had just occurred. As of now, we have a volcano blob that is above our volcano using a lava texture; however, we will need to show this flowing down the volcano in our next steps.
+
+		</p>
+		
+		<!-- <p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="clothsim.png" width="400px"/>
+				  <figcaption>Caption goes here.</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="clothsim.png" width="400px"/>
+				  <figcaption>Caption goes here.</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="clothsim.png" width="400px"/>
+				  <figcaption>Caption goes here.</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="clothsim.png" width="400px"/>
+				  <figcaption>Caption goes here.</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div> -->
+
+		
+		
+
+		
+			<p>
+                Relative to our original progress plan, we believe that we are on the right track to finish our project and make the correct modifications, with a possibility to add on more features for our project if we have the time. As of now, we are also finalizing how we are going to use the Marching Cubes algorithm to help model a smooth mesh to help represent our viscous fluid. As the fluid moves down the volcano, we will need more and more particles to help show this, which can be done using the Marching Cubes algorithm while also maintaining the emission that we want to represent the essence of lava. We are planning to use the Marching Cubes algorithm specifically by computing a scalar value that is representative of the comprehensive lava that is around a specific position in the volcano. 
+
+			</p>
+
+			<p> 
+                In regards to our updated plan for the next two weeks, we will focus on finishing the lava flow and ensuring that we can maintain the emissive properties of the lava while also having it flow down the volcano. We will accompany this with testing so that we are able to ensure that our project is complete for the final presentation. In the fourth week prior to our presentation, we will look to practice our presentation with each other, where we can bounce ideas off of each other and look to potentially add any new things that might pique our interest.
+
+			</p>
+            
+	<!-- <h2>Part 4: Handling self-collisions</h2>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+		<h2>Part 5: Shaders</h2>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+		<h2>(Optional) Part 6: Extra Credit - Additional cloth simulation features!</h2>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		 -->
+		
+		</div>
+	</body>
+</html>
