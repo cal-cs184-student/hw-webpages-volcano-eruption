@@ -42,7 +42,7 @@
 		We've already added one heading per part, to make your write-up as navigable when grading. Please fit your write-up within these sections!
 		-->
 
-		<h2>Abstract</h2>
+		<h1>Abstract</h1>
 
 		<p>
 			In our project, our main goal was to solve the following problem - having to model a viscous fluid (lava) as it traverses down our mountainous terrain. This consisted of a few main parts including modeling the volcano, particle rendering for lava, surface reconstruction, then finally texturing of these particles. We started from Project 4 and created a particle simulation using Smoothed-Particle Hydrodynamics (SPH). The volcano was generated from a heightmap where lighter colors generated to higher terrain. Marching cubes was used to create a surface from the SPH scalar field. Finally a texture was added to create a semi-realistic lava look.
@@ -94,22 +94,15 @@
 			</table>
 		</div> -->
 
-		<h2>Goals and Deliverables</h2>
+		<h1>Lava Construction</h1>
 		
-			<h4> What we plan to deliver </h4>
+			<h4> Steps of Lava Construction </h4>
 				<p>
-					Our main goal is to create a working simulation for lava flowing down a volcano/mountain. For us, the quality of our project would stem from the realistic accuracy of the fluid flow. We want to ensure that the lava has a viscosity that would parallel that which we might find in real life. In addition, a part of this goal for quality would stem from how pleasing our project is to the eye. Of course, this is a totally subjective matter, but at the very least, we’d like for there to be no room for interpretation in regards to our project - anyone should be able to discern that it’s indeed a volcano with lava flowing out of it. That is the bare minimum. 
+					In order to render our lava, two things had to be done. Firstly, we needed to spawn a sea of lava particles above our volcano. Our build_lava function handles this by creating a sphere-like blob of randomly generated lava particles. We extracted the maximum height of the volcano to help us offset the lava particles to be above the volcano. After creating our blob, the second part of rendering the lava was in creating a mesh from these particles using the marching cubes algorithm. We decided on integrating libigl into our project to avoid having to implement this monster of an algorithm ourselves. The three most important inputs to the API are two eigen field matrices and one iso threshold value. The matrix inputs define the positions of our lava particles as well as a scalar value which the marching cubes algorithm uses to construct the mesh. More specifically, the scalar values are the relative densities at the given positions where we compute the density based on the poly6 kernel, and internally, marching cubes decides whether something is on the surface of our object based on these densities and the supplied iso value. The outputs of this API are an n x 3 matrix of 3D points that represent the vertex positions of our isosurface mesh as well as an m x 3 matrix of triangle indices where each row is a triangle defined by indices into our vertices matrix. 
 				</p>
 				
-				<p>
-					In regards to the metrics that we will use to determine the success of our system, we can focus on rendering metrics such as the time to render frames, or in a lighting sense, how the light’s irradiance is reflected on the display and also how external light sources might have an impact on the irradiance on the volcano’s surface. 
-				</p>
 
-				<p>
-					Diving more into lava as a light source, lava’s emission is something that we will need to take into consideration to represent a glow of sorts. There are many considerations when using lava, such as how it might illuminate the air, and how this might differ with the quantity of lava that we choose to be in our render. 
-				</p>
-
-			<h4> What we hope to deliver</h4>
+			<h4> Particle Physics </h4>
 				<p>
 					If we get ahead of our schedule, and get the bare bones implementation finished, our team is hoping to add more complexity to the mountain to make the system more realistic. We believe that this task would be very challenging, but also really rewarding if done correctly. This includes adding aspects such as the action of lava first spewing into the air rather than a natural downward motion, or the inclusion of objects which might be engulfed in the lava, among other ideas which we had. 
 				</p>
@@ -117,18 +110,15 @@
 					In regards to aspirations that we have with illuminating the surrounding area, we believe aspirations can include accounting for the illumination that might occur as a result of lava, such as a darker global image due to ash and smoke, while also maintaining the illumination from the lava itself. Other aspirations include use different rock formations to represent our volcano, where the lava colliding will take the shape of the different formations on the volcano, different to a strictly smooth surface. 
 				</p>
 
-			<h4> Questions to consider </h4>
+			<h4> Collision </h4>
 			<p>
-				What objects should we add to the mountain to make it more realistic?
+				We then had to add collision with the volcano, as currently our particles would go straight through. To do this, we already had a function that extracted height from the heightmap. For each particle we checked if its position was below this height and if it was we moved it to the top. This worked for basically stopping the particle once it hit the volcano but obviously a fluid doesn’t stop when it hits something it flows downwards. To implement this we found an estimate of the gradient wherever the particle collided. We did this by basically finding the rough slope using a small change in X and change in Y, getting the heights at those values and then finding the slope. We then applied it to the particle's velocity so it would follow the slope downwards by removing the component of the velocity that was parallel to the normal (essentially projecting it onto the tangent plane). This allowed a particle to flow down the slope like seem below.
 			</p>
 
-			<p> 
-				How would the lava interact with these new objects?
-			</p>
-
-			<p>
-				How would this added complexity affect the performance of our overall system. would the system render smoothly still with all this added work and calculations that would need to be done?
-			</p>
+			<video width="640" height="360" controls>
+				<source src="../particle.mov" type="video/quicktime">
+			  </video>
+			  
 
 
 
