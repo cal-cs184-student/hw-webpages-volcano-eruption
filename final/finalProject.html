@@ -48,9 +48,9 @@
 			In our project, our main goal was to solve the following problem - having to model a viscous fluid (lava) as it traverses down our mountainous terrain. This consisted of a few main parts including modeling the volcano, particle rendering for lava, surface reconstruction, then finally texturing of these particles. We started from Project 4 and created a particle simulation using Smoothed-Particle Hydrodynamics (SPH). The volcano was generated from a heightmap where lighter colors generated to higher terrain. Marching cubes was used to create a surface from the SPH scalar field. Finally a texture was added to create a semi-realistic lava look.
 		</p>
 
-		<h3> Technical Approach </h3>
+		<h1> Technical Approach </h1>
 
-		<h2>Volcano Construction</h2>
+		<h3>Volcano Construction</h2>
 		<p>
 			The first step we did for our project was rendering the volcano we were going to use. We started with project 4 as a baseline where the cloth mesh can be modified to simulate the volcano. We found a heightmap online and by using the buildGrid method that was used for clothes in project 4, we were able to create a heightmap which would allow us to represent the height of the volcano. This is done through the use of stbi_load() with 1 set as the desired channel in order to tell the loader to output the image in a single channel grayscale format. This then allows us to extract the pixel value at each position in the image corresponding to our volcano grid, where a lighter grayscale value corresponds to a higher position on our volcano. After constructing our grid from the heightmap, we simply built a clothMesh from it, similar to homework 4, and then texture mapped a volcano texture onto our resulting mesh. 
 
@@ -60,6 +60,12 @@
 		</p>
 		
 		<img src="../normal.png" alt="Texture" width="300" height="200">
+
+		<p>
+			Normal
+		</p>
+		
+		<img src="../tNorma.png" alt="Normal" width="300" height="200">
 
 		
 		<!-- <p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
