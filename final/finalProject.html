@@ -135,7 +135,7 @@
 			<img src="../lavaShader.png" alt="Texture" width="300" height="200">
 
 			<p>
-				This implementation consisted of multiple parts, where we started with having a vertex and a fragment shader. The fragment shader will have the effect of providing a more realistic view of our lava as seen how it is overlaid on the , emphasizing the color gradient, temperature-based color calculations, and also the emissive properties of the lava. 
+				This implementation consisted of multiple parts, where we started with having a vertex and a fragment shader. The fragment shader will have the effect of providing a more realistic view of our lava as seen how it is overlaid on the volcano, emphasizing the color gradient, temperature-based color calculations, and also the emissive properties of the lava. 
 			</p>
 
 			<p>
@@ -147,6 +147,12 @@
 			</p>
 
 		
+		<h1> Results </h1>
+			<p>
+				<a href = "https://youtu.be/-cG6ZrFd3L8"> Simulation Video</a>
+			</p>
+		
+
 		<h2> Resources </h2>
 		<p>
 			<a href = "https://drive.google.com/file/d/14NBuwOkBv4B0xg0AGVYWsEsgpjXjXg6a/view?fbclid=IwZXh0bgNhZW0CMTEAAR78jBpmvGrk8wCZjcc0bx5xsHapOjFGMyVkgDAis_BgmRLMV_6NpT3xuRjOTA_aem_CB7LSC66ANmmIrU0CXmGMg">Position Based Fluid Simulation and Surface Rendering</a>
@@ -157,6 +163,42 @@
 		<p>
 			<a href = "https://experiments.withgoogle.com/fluid-particles">Fluid Particles</a>
 		</p>
+
+		<p>
+			<a href = "https://drive.google.com/file/d/14NBuwOkBv4B0xg0AGVYWsEsgpjXjXg6a/view?fbclid=IwZXh0bgNhZW0CMTEAAR78jBpmvGrk8wCZjcc0bx5xsHapOjFGMyVkgDAis_BgmRLMV_6NpT3xuRjOTA_aem_CB7LSC66ANmmIrU0CXmGMg">Position Based Fluid Simulation and Surface Rendering</a>
+		</p>
+
+		<p>
+			<a href = "https://paulbourke.net/geometry/polygonise/">Polygonising a scalar field</a>
+		</p>
+		
+		<p>
+			<a href = "https://github.com/libigl/libigl/blob/main/include/igl/copyleft/marching_cubes.h">Marching Cubes</a>
+		</p>
+
+		<p>
+			<a href = "https://www.shadertoy.com/view/MdBSRW">Texture</a>
+		</p>
+
+		<p>
+			<a href = "https://drive.google.com/drive/folders/1OL-w9dxZgs6cvSb4Q1xDH6TpTjUmjXaX">Volcano Heightmap</a>
+		</p>
+
+		<h1> Contributions </h1>
+
+		<h3> Alexei Ionov </h3>
+
+		<p>
+			Created the base particle model for SPH by refactoring Clothsim, as well as initial scene setups
+			Implemented volcano model using a heightmap 
+			Implemented Marching Cubes on our SPH model to create a mesh
+			Contributed to writeup and slides
+			Dealt with integrating libigl into existing project structure.
+		</p>
+
+		
+
+
 		<!-- <h2>Part 4: Handling self-collisions</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
