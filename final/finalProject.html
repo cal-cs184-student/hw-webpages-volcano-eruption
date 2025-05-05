@@ -55,15 +55,15 @@
 			The first step we did for our project was rendering the volcano we were going to use. We started with project 4 as a baseline where the cloth mesh can be modified to simulate the volcano. We found a heightmap online and by using the buildGrid method that was used for clothes in project 4, we were able to create a heightmap which would allow us to represent the height of the volcano. This is done through the use of stbi_load() with 1 set as the desired channel in order to tell the loader to output the image in a single channel grayscale format. This then allows us to extract the pixel value at each position in the image corresponding to our volcano grid, where a lighter grayscale value corresponds to a higher position on our volcano. After constructing our grid from the heightmap, we simply built a clothMesh from it, similar to homework 4, and then texture mapped a volcano texture onto our resulting mesh. 
 
 		</p>
-		<p>
+		<h4>
 			Texture
-		</p>
+		</h4>
 		
 		<img src="../normal.png" alt="Texture" width="300" height="200">
 
-		<p>
+		<h4>
 			Normal
-		</p>
+		</h4>
 		
 		<img src="../tNorma.png" alt="Normal" width="300" height="200">
 
@@ -116,7 +116,7 @@
 			</p>
 
 			<video width="640" height="360" controls>
-				<source src="../particle.mov" type="video/quicktime">
+				<source src="../particle.mp4" type="video/mp4">
 			  </video>
 			  
 
