@@ -98,7 +98,9 @@
 		
 			<h4> Steps of Lava Construction </h4>
 				<p>
-					In order to render our lava, two things had to be done. Firstly, we needed to spawn a sea of lava particles above our volcano. Our build_lava function handles this by creating a sphere-like blob of randomly generated lava particles. We extracted the maximum height of the volcano to help us offset the lava particles to be above the volcano. After creating our blob, the second part of rendering the lava was in creating a mesh from these particles using the marching cubes algorithm. We decided on integrating libigl into our project to avoid having to implement this monster of an algorithm ourselves. The three most important inputs to the API are two eigen field matrices and one iso threshold value. The matrix inputs define the positions of our lava particles as well as a scalar value which the marching cubes algorithm uses to construct the mesh. More specifically, the scalar values are the relative densities at the given positions where we compute the density based on the poly6 kernel, and internally, marching cubes decides whether something is on the surface of our object based on these densities and the supplied iso value. The outputs of this API are an n x 3 matrix of 3D points that represent the vertex positions of our isosurface mesh as well as an m x 3 matrix of triangle indices where each row is a triangle defined by indices into our vertices matrix. 
+					In order to render our lava, two things had to be done. Firstly, we needed to spawn a sea of lava particles above our volcano. Our build_lava function handles this by creating a sphere-like blob of randomly generated lava particles. We extracted the maximum height of the volcano to help us offset the lava particles to be above the volcano. After creating our blob, the second part of rendering the lava was in creating a mesh from these particles using the marching cubes algorithm. We decided on integrating libigl into our project to avoid having to implement this monster of an algorithm ourselves. The three most important inputs to the API are two eigen field matrices and one iso threshold value. The matrix inputs define the positions of our lava particles as well as a scalar value which the marching cubes algorithm uses to construct the mesh. More specifically, the scalar values are the relative densities at the given positions where we compute the density based on the poly6 kernel, and internally, marching cubes decide whether something is on the surface of our object based on these densities and the supplied iso value. The outputs of this API are an n x 3 matrix of 3D points that represent the vertex positions of our isosurface mesh as well as an m x 3 matrix of triangle indices where each row is a triangle defined by indices into our vertices matrix. 
+					Now given these two matrices, we pass them into our draw_lava in our volcano_simulator.cpp which sets up the uvs, normals, positions, etc before calling our shaders. Also, within our texture shader, we have conditional logic which determines whether a given position corresponds to a lava particle or a volcano particle.
+
 				</p>
 				
 
@@ -108,6 +110,14 @@
 				</p>
 				<p>
 					In regards to aspirations that we have with illuminating the surrounding area, we believe aspirations can include accounting for the illumination that might occur as a result of lava, such as a darker global image due to ash and smoke, while also maintaining the illumination from the lava itself. Other aspirations include use different rock formations to represent our volcano, where the lava colliding will take the shape of the different formations on the volcano, different to a strictly smooth surface. 
+				</p>
+
+				<p>
+					Pressure forces too high. 
+					<video width="640" height="360" controls>
+						<source src="../collision.mp4" type="video/mp4">
+					  </video>
+		
 				</p>
 
 			<h4> Collision </h4>
@@ -151,9 +161,15 @@
 			<p>
 				<a href = "https://youtu.be/-cG6ZrFd3L8"> Simulation Video</a>
 			</p>
-		
 
-		<h2> Resources </h2>
+			<img src="../modified.png" alt="Texture" width="300" height="200">
+		
+			<img src="../don.png" alt="Texture" width="300" height="200">
+			
+			<img src="../lav.png" alt="Texture" width="300" height="200">
+
+
+		<h1> Resources </h1>
 		<p>
 			<a href = "https://drive.google.com/file/d/14NBuwOkBv4B0xg0AGVYWsEsgpjXjXg6a/view?fbclid=IwZXh0bgNhZW0CMTEAAR78jBpmvGrk8wCZjcc0bx5xsHapOjFGMyVkgDAis_BgmRLMV_6NpT3xuRjOTA_aem_CB7LSC66ANmmIrU0CXmGMg">Position Based Fluid Simulation and Surface Rendering</a>
 		</p>
