@@ -118,22 +118,32 @@
 			<video width="640" height="360" controls>
 				<source src="../particle.mp4" type="video/mp4">
 			  </video>
+
+			<p>
+				Finally to simulate lava flowing continuously out of the volcano, at certain time steps we would generate more lava in the starting point to make it seem endless.
+			</p>
 			  
 
 
 
-		<h2> Schedule </h2>
+		<h1> Texturing/Lava Shader </h1>
 			<p>
-				Week 1: Research on modeling simulations + Get started on modeling volcano for our system. 
+				The goal of our texturing was to simulate the fluid flow in terms of the material properties of the lava, which includes highlighting the emissive properties of the lava and the molten form of the lava as it flows down the volcano’s exterior. The way we went about this is we looked to integrate a real-time lava shader, which was inspired by an existing lava shader implementation that we found on Shader Toy. 
 			</p>
+
+
+			<img src="../lavaShader.png" alt="Texture" width="300" height="200">
+
 			<p>
-				Week 2: Finish up volcano model + begin working on lava flow + testing
+				This implementation consisted of multiple parts, where we started with having a vertex and a fragment shader. The fragment shader will have the effect of providing a more realistic view of our lava as seen how it is overlaid on the , emphasizing the color gradient, temperature-based color calculations, and also the emissive properties of the lava. 
 			</p>
+
 			<p>
-				Week 3: Finish lava flow + testing
+				Diving deeper into the temperature-based color calculations, some specific use cases of this quality was to simulate a physical body. Through blackbody radiation, color was able to be simulated through an effect that represents how the lava would look at different timesteps given the amount of radiation that it absorbs and its corresponding “glow” based on its temperature. 
 			</p>
+
 			<p>
-				Week 4: Wrap up and work on producing final deliverable + presentation. 
+				Some issues that we faced throughout the creation and implementation of the lava shader is the effect that the lava had on the view of the volcano map itself, which became significantly darker due to issues that we started to face due to the lighting. Due to this, we modified our lighting function for the volcano to use Blinn-Phong lighting, taking into the ambient, specular, and diffuse lighting characteristics in regards to the volcano. 
 			</p>
 
 		
